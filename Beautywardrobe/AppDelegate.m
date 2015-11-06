@@ -13,6 +13,8 @@
 #import "ShoppingLibrary.h"
 #import "MainVC.h"
 #import "SMS_SDK/SMS_SDK.framework/Headers/SMSSDK.h"
+#import "Masonry.h"
+//#import "AllHead.pch"
 @interface AppDelegate ()
 
 @end
@@ -35,13 +37,23 @@
 {
     NSArray *titleImageArr = @[@"yuike_maintab_home_nor.png",@"yuike_maintab_iconbrand_nor.png",@"yuike_maintab_brand_nor.png",@"button_titleBar_shopcart_iOS6",@"yuike_maintab_space_nor.png"];
     NSArray *selTitleImageArr = @[@"yuike_maintab_home_sel.png",@"yuike_maintab_iconbrand_sel.png",@"yuike_maintab_brand_sel.png",@"button_titleBar_shopcart",@"yuike_maintab_space_sel.png"];
-    tabBar = [[UIView alloc]initWithFrame:CGRectMake(0, 667 - 75, 375, 75)];
+    tabBar = [[UIView alloc]init];
+    [tabBar mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        make.left.equalTo(tabBar).width.offset(0);
+        make.right.equalTo(tabBar).width.offset(0);
+        make.bottom.equalTo(tabBar).width.offset(0);
+
+
+    }];
     tabBar.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.9];
     [self.window addSubview:tabBar];
+    CGRect rect1 = [UIScreen mainScreen].bounds;
     for (int i = 0; i < 5; i ++)
     {
+        NSLog(@"%f",rect1.size.width);
         UIButton *barBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        barBtn.frame = CGRectMake(75 * i, 0,75, 75);
+        barBtn.frame = CGRectMake((rect1.size.width / 5) * i, 0,rect1.size.width / 5, (rect1.size.width / 5));
         [barBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",titleImageArr[i]]] forState:UIControlStateNormal];
         
         [barBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",selTitleImageArr[i]]] forState:UIControlStateSelected];

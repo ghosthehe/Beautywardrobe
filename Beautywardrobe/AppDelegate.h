@@ -10,7 +10,12 @@
 #import <CoreData/CoreData.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    UIView *tabBar;
 
+}
+@property(nonatomic,strong)UIButton *selectBtn;
+@property(nonatomic,strong)NSMutableArray *navArr;
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

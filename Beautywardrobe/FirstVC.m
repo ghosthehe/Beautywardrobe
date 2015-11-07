@@ -411,5 +411,8 @@
 {
     [_timer invalidate];
 }
+-(void)dealloc
+{
 
+}
 @end

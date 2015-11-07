@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EHz-Xd-xeL">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHz-Xd-xeL">
                     <rect key="frame" x="49" y="99" width="266" height="37"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="izd-hM-Oz3">
@@ -33,8 +33,12 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="32h-fk-ka5"/>
+                        <constraint firstAttribute="width" constant="266" id="eyK-eO-aIe"/>
+                    </constraints>
                 </view>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RcQ-Kf-4JI">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RcQ-Kf-4JI">
                     <rect key="frame" x="49" y="170" width="266" height="37"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hva-ss-zyw">
@@ -50,9 +54,17 @@
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="4d3-GZ-hw0"/>
+                        <constraint firstAttribute="width" constant="266" id="6Wp-0g-9RI"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yU-Nb-cC2">
-                    <rect key="frame" x="103" y="322" width="159" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yU-Nb-cC2">
+                    <rect key="frame" x="103" y="325" width="159" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="7EB-bc-1Mf"/>
+                        <constraint firstAttribute="width" constant="159" id="ppb-U1-G9j"/>
+                    </constraints>
                     <state key="normal" title="注册">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -60,23 +72,22 @@
                         <action selector="registBtnClick:" destination="-1" eventType="touchUpInside" id="R0c-6h-AL9"/>
                     </connections>
                 </button>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgo-MB-KJX">
-                    <rect key="frame" x="49" y="234" width="266" height="37"/>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgo-MB-KJX">
+                    <rect key="frame" x="49" y="234" width="266" height="40"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjo-a5-k4u">
-                            <rect key="frame" x="81" y="0.0" width="185" height="38"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="验证码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2C-Ds-YFc">
-                            <rect key="frame" x="8" y="7" width="51" height="21"/>
+                            <rect key="frame" x="8" y="11" width="51" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEX-DF-GMB">
-                            <rect key="frame" x="183" y="-2" width="83" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEX-DF-GMB">
+                            <rect key="frame" x="191" y="0.0" width="75" height="40"/>
                             <color key="backgroundColor" red="1" green="0.1659487691" blue="0.21789418199999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="q9Z-JG-aTF"/>
+                                <constraint firstAttribute="height" constant="40" id="rKe-Os-dna"/>
+                            </constraints>
                             <state key="normal" title="获取验证码">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -84,11 +95,24 @@
                                 <action selector="retaintestAndVerify:" destination="-1" eventType="touchUpInside" id="hcp-ie-tqo"/>
                             </connections>
                         </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjo-a5-k4u">
+                            <rect key="frame" x="81" y="2" width="185" height="38"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="oEX-DF-GMB" secondAttribute="trailing" id="XPe-Cq-tTo"/>
+                        <constraint firstItem="oEX-DF-GMB" firstAttribute="top" secondItem="qgo-MB-KJX" secondAttribute="top" id="vuo-Bu-oax"/>
+                    </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-df-lOB">
-                    <rect key="frame" x="246" y="284" width="79" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6K-df-lOB">
+                    <rect key="frame" x="246" y="287" width="79" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="79" id="c4p-IE-V6N"/>
+                        <constraint firstAttribute="height" constant="30" id="fKS-ys-ytL"/>
+                    </constraints>
                     <state key="normal" title="隐私条款&gt;&gt;">
                         <color key="titleColor" red="1" green="0.1659487691" blue="0.21789418199999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,6 +120,23 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RcQ-Kf-4JI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="0ak-nd-eSN"/>
+                <constraint firstItem="j6K-df-lOB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="287" id="3Sd-iT-WB9"/>
+                <constraint firstAttribute="trailing" secondItem="j6K-df-lOB" secondAttribute="trailing" constant="50" id="8Ru-v8-qR5"/>
+                <constraint firstAttribute="trailing" secondItem="qgo-MB-KJX" secondAttribute="trailing" constant="60" id="Cmh-sl-8HS"/>
+                <constraint firstAttribute="trailing" secondItem="5yU-Nb-cC2" secondAttribute="trailing" constant="113" id="DsY-j4-zgf"/>
+                <constraint firstItem="EHz-Xd-xeL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="99" id="ETG-cs-d87"/>
+                <constraint firstItem="5yU-Nb-cC2" firstAttribute="top" secondItem="j6K-df-lOB" secondAttribute="bottom" constant="8" id="Tsd-px-scI"/>
+                <constraint firstItem="qgo-MB-KJX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="Tti-cb-3ru"/>
+                <constraint firstItem="RcQ-Kf-4JI" firstAttribute="top" secondItem="EHz-Xd-xeL" secondAttribute="bottom" constant="34" id="Uxn-1S-sBJ"/>
+                <constraint firstItem="EHz-Xd-xeL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="cGk-q8-qhm"/>
+                <constraint firstItem="5yU-Nb-cC2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="103" id="cpd-cU-jkm"/>
+                <constraint firstItem="j6K-df-lOB" firstAttribute="top" secondItem="qgo-MB-KJX" secondAttribute="bottom" constant="13" id="dir-Kf-IdN"/>
+                <constraint firstAttribute="trailing" secondItem="EHz-Xd-xeL" secondAttribute="trailing" constant="60" id="fMs-Ck-mvc"/>
+                <constraint firstItem="qgo-MB-KJX" firstAttribute="top" secondItem="RcQ-Kf-4JI" secondAttribute="bottom" constant="27" id="qfs-wB-xfT"/>
+                <constraint firstAttribute="trailing" secondItem="RcQ-Kf-4JI" secondAttribute="trailing" constant="60" id="sK5-Fq-Xew"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="339.5" y="363.5"/>
         </view>

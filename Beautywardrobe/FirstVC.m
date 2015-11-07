@@ -9,6 +9,8 @@
 #import "FirstVC.h"
 #import "View1.h"
 #import "View2.h"
+#import "AllHeader.pch"
+#import "UIImageView+Addition.h"
 @interface FirstVC ()
 {
     UIScrollView *titleScr;
@@ -37,21 +39,23 @@
     
     [self createTopBtn];
     
+    //@"http://api.yuike.com/beautymall/api/1.0/product/quality.php?cursor=0&yk_pid=1&yk_cbv=2.8.4.2&count=40&yk_user_id=2061882&yk_appid=1&sid=6b94d8ee8b05caffc4b7c361c0f979f5&type=choice"
+    
 }
 #pragma mark ---topBtn
 -(void)createTopBtn
 {
     _topBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _topBtn.frame = CGRectMake(310, 667 - 130, 50, 50);
+    _topBtn.frame = CGRectMake(mainScreen_width - 60, mainScreen_height - (mainScreen_width / 5 + 55), 50, 50);
     [_topBtn setImage:[UIImage imageNamed:@"go_top_btn.png"] forState:UIControlStateNormal];
     [_topBtn addTarget:self action:@selector(topBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 #pragma mark --- 创建大得Scr
 -(void)creatBiggistScr
 {
-    _biggistScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 104, 375, 487)];
+    _biggistScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, mainScreen_width, mainScreen_height - 64 - 75)];
     _biggistScr.tag = 120;
-    _biggistScr.contentSize = CGSizeMake(375 * 18, 487);
+    _biggistScr.contentSize = CGSizeMake(mainScreen_width * 18, mainScreen_height - 64 - 75);
     _biggistScr.pagingEnabled = YES;
     _biggistScr.alwaysBounceHorizontal = NO;
     _biggistScr.alwaysBounceVertical = NO;
@@ -60,14 +64,14 @@
     {
         if (i == 0)
         {
-            UIScrollView *contentScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 375, 487)];
+            UIScrollView *contentScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, mainScreen_width, mainScreen_height - 64 - (mainScreen_width / 5))];
             contentScr.alwaysBounceHorizontal = NO;
             contentScr.alwaysBounceVertical = YES;
             contentScr.autoresizingMask = NO;
             contentScr.bounces = YES;
             contentScr.bouncesZoom = NO;
             contentScr.delegate = self;
-            contentScr.contentSize = CGSizeMake(375, 440 + (667 - 104 - 75));
+            contentScr.contentSize = CGSizeMake(mainScreen_width,(mainScreen_height - 64 - (mainScreen_width / 5) + 400));
             contentScr.tag = 130;
             [_biggistScr addSubview:contentScr];
             [self writeContentInContentScr:contentScr with:i];
@@ -91,11 +95,15 @@
     array = @[@150,@190,@350,@250,@80,@50,@150,@500,@100,@356,@59,@50,@150,@10,@120,@137,@148,@150,@90,@30,@60,@200,@210,@207,@130,@150,@40,@250,@50];
     
     CustomLayout *layout = [[CustomLayout alloc] init];
-    UICollectionView *myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(375 * i, height, 375, _biggistScr.frame.size.height) collectionViewLayout:layout];
-    myCollectionView.backgroundColor = [UIColor whiteColor];
+    UICollectionView *myCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(mainScreen_width * i, height, mainScreen_width, _biggistScr.frame.size.height) collectionViewLayout:layout];
+    myCollectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.9];
     myCollectionView.dataSource = self;
     myCollectionView.delegate = self;
-    [myCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [myCollectionView registerNib:[UINib nibWithNibName:@"GCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+    [myCollectionView registerNib:[UINib nibWithNibName:@"GCollectionViewCell0" bundle:nil] forCellWithReuseIdentifier:@"cell0"];
+
+    //注册表头表尾myCollectionView registerClass:<#(__unsafe_unretained Class)#> forSupplementaryViewOfKind:<#(NSString *)#> withReuseIdentifier:<#(NSString *)#>
+    //用于系统创建[myCollectionView registerClass:[GCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
 
     return myCollectionView;
 }
@@ -109,13 +117,31 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    UIColor *color = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0];
-    
-    cell.backgroundColor = color;
-    
-    return cell;
+
+    if (indexPath.row == 0)
+    {
+        GCollectionViewCell0 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell0" forIndexPath:indexPath];
+        cell.backgroundColor = CustomColor(240.0f,111.0f,191.0f,1);
+        return cell;
+    }
+    else
+    {
+        GCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+
+        ///防止内容重用
+        cell.bgView.image = [UIImage imageNamed:@""];
+        if(indexPath.row == 1)
+        {
+            cell.backgroundColor = [UIColor redColor];
+        }
+        else
+        {
+            cell.backgroundColor = [UIColor whiteColor];
+            cell.bgView.image = [UIImage imageNamed:@"6446027056db8afa73b23eaf953dadde1410240902.jpg"];
+            cell.priceLabel.textColor = CustomColor(240.0f,111.0f,191.0f,1);
+        }
+        return cell;
+    }
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -146,40 +172,49 @@
     _pageControl = [self createPageConrol];
     [contentScr addSubview:_pageControl];
     
-    View1 *view1 = [[View1 alloc]initWithFrame:CGRectMake(0, 210, 375, 60)];
+    View1 *view1 = [[View1 alloc]initWithFrame:CGRectMake(0, 170, mainScreen_width, 60)];
     [contentScr addSubview:view1];
     
-    View2 *view2 = [[View2 alloc]initWithFrame:CGRectMake(0, 270, 370, 170)];
-    view2.backgroundColor = [UIColor redColor];
+    View2 *view2 = [[View2 alloc]initWithFrame:CGRectMake(0, 230, mainScreen_width, 170)];
     [contentScr addSubview:view2];
     
-    self.firstCollectionView = [self creatCollectionWithHeight:440 with:i];
+    self.firstCollectionView = [self creatCollectionWithHeight:400 with:i];
     self.firstCollectionView.tag = 90;
     [contentScr addSubview:self.firstCollectionView];
 
     _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(changePageOfPageControl) userInfo:nil repeats:YES];
+
 }
+#pragma mark --- 6张图片的Scr
 -(UIScrollView*)writeFirstScr
 {
-    UIScrollView *littleScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 375, 210)];
+    UIScrollView *littleScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, mainScreen_width, 210)];
     littleScr.alwaysBounceHorizontal = YES;
     littleScr.alwaysBounceVertical = NO;
     littleScr.pagingEnabled = YES;
-    littleScr.contentSize = CGSizeMake(375 * 6, 210);
+    littleScr.contentSize = CGSizeMake(mainScreen_width * 6, 210);
     littleScr.delegate = self;
     littleScr.tag = 140;
-    for (int i = 0; i < 6; i ++)
+    FirstRequest *fre = [FirstRequest shareFirstRequest];
+    [fre get6ImageUrlWithUrlString:@"http://api.yuike.com/beautymall/api/1.0/client/banner_list.php?yk_appid=1&sid=6b94d8ee8b05caffc4b7c361c0f979f5&yk_pid=1&yk_cbv=2.8.4.2"];
+    fre.sixImageBlock = ^(NSDictionary *dic)
     {
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(375 * i, 0, 375, 210)];
-        imageView.backgroundColor = [UIColor redColor];
-        [littleScr addSubview:imageView];
-    }
+        NSArray *arr = [dic objectForKey:@"data"];
+        for (int i = 0; i < arr.count; i ++)
+        {
+            NSDictionary *imaDic = arr[i];
+            NSString *str = [imaDic objectForKey:@"pic_url"];
+            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(mainScreen_width * i, 0, mainScreen_width, mainScreen_height * 210 / 667)];
+            [imageView setGImageUrlWithString:str];
+            [littleScr addSubview:imageView];
+        }
+    };
     return littleScr;
 }
 
 -(UIPageControl*)createPageConrol
 {
-    UIPageControl *pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(130, 180, 120, 20)];
+    UIPageControl *pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(mainScreen_width / 2 - 60, 140, 120, 20)];
     pageControl.numberOfPages = 6;
     pageControl.currentPage = 0;
     pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
@@ -195,13 +230,12 @@
 {
     static int count = 0;
     _pageControl.currentPage = count;
-    _littleScr.contentOffset = CGPointMake(375 * count, 0);
+    _littleScr.contentOffset = CGPointMake(mainScreen_width * count, 0);
     count ++;
-    if (count == 6)
+    if (count == 5)
     {
         count = 0;
     }
-    
 }
 #pragma mark --- 创建标题Scr
 -(void)creatTitleScrAndBar
@@ -210,7 +244,7 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     
     NSArray *titleArr = [[NSArray alloc]initWithObjects:@"推荐",@"青春",@"淑女",@"女鞋",@"配饰",@"女包",@"泳装",@"内衣",@"婚礼",@"大码",@"老公",@"妈妈",@"爸爸",@"孕妇",@"男孩",@"女孩",@"生活",@"护肤", nil];
-    titleScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 65, 375, 40)];
+    titleScr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 65, mainScreen_width, 40)];
     titleScr.delegate = self;
     titleScr.tag = 110;
     _titleBtnArr = [[NSMutableArray alloc]init];
@@ -240,7 +274,7 @@
     [self.view addSubview:titleScr];
     
     _totleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _totleBtn.frame = CGRectMake(335, 65, 40, 40);
+    _totleBtn.frame = CGRectMake(mainScreen_width - 40, 65, 40, 40);
     [_totleBtn setImage:[UIImage imageNamed:@"blueArrow.png"] forState:UIControlStateNormal];
     [_totleBtn addTarget:self action:@selector(goToTotalBtnClick) forControlEvents:UIControlEventTouchUpInside];
     _totleBtn.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
@@ -261,7 +295,7 @@
 {
     [self retainLine:btn];
     
-    _biggistScr.contentOffset = CGPointMake((btn.tag - 1) * 375, 0);
+    _biggistScr.contentOffset = CGPointMake((btn.tag - 1) * mainScreen_width, 0);
     
 }
 #pragma mark--- scr滑动代理方法
@@ -269,9 +303,14 @@
 {
     if (scrollView.tag == 120)
     {
-        int page = scrollView.contentOffset.x / 375;
+        int page = scrollView.contentOffset.x / mainScreen_width;
         UIButton *titleBtn = _titleBtnArr[page];
         [self retainLine:titleBtn];
+        [UIView animateWithDuration:3 animations:^{
+            titleScr.frame = CGRectMake(0, 65, mainScreen_width, 40);
+
+        }];
+
         if (page > 3)
         {
             [UIView animateWithDuration:0.3 animations:^{
@@ -283,20 +322,20 @@
     if (scrollView.tag == 130)
     {
         scrollView.alwaysBounceHorizontal = YES;
-        _a = scrollView.contentOffset.y;
+        self.a = scrollView.contentOffset.y;
 
     }
     if (scrollView.tag == 100)
     {
-        _a = scrollView.contentOffset.y;
+        self.a = scrollView.contentOffset.y;
     }
     if (scrollView.tag == 90)
     {
-        _a = scrollView.contentOffset.y;
+       self.a = scrollView.contentOffset.y;
     }
     if (scrollView.tag == 140)
     {
-       int page = _littleScr.contentOffset.x / 375;
+       int page = _littleScr.contentOffset.x / mainScreen_width;
         _pageControl.currentPage = page;
     }
     
@@ -313,25 +352,24 @@
     if (scrollView.tag == 130 || scrollView.tag == 100 || scrollView.tag == 90)
     {
         int a = scrollView.contentOffset.y;
-        NSLog(@"%d",a);
-        if (a > 80)
+        if (a > 30)
         {
             [UIView animateWithDuration:1 animations:^{
                 
-                titleScr.frame = CGRectMake(0, 25, 375, 40);
-                _biggistScr.frame = CGRectMake(0, 65, 375, 487 + 40);
+                titleScr.frame = CGRectMake(0, 25, mainScreen_width, 40);
+                _biggistScr.frame = CGRectMake(0, 65, mainScreen_width, (mainScreen_height - 64 - mainScreen_width / 5));
             
-                _totleBtn.frame = CGRectMake(335, 25, 40, 40);
+                _totleBtn.frame = CGRectMake(mainScreen_width - 40, 25, 40, 40);
 
             }];
         }
-        if ((_a - a) > 50)
+        if ((self.a - a) > 20)
         {
             [UIView animateWithDuration:1 animations:^{
                 
-                titleScr.frame = CGRectMake(0, 65, 375, 40);
-                _biggistScr.frame = CGRectMake(0, 104, 375, 487);
-                _totleBtn.frame = CGRectMake(335, 65, 40, 40);
+                titleScr.frame = CGRectMake(0, 65, mainScreen_width, 40);
+                _biggistScr.frame = CGRectMake(0, 65, mainScreen_width, (mainScreen_height - 64 - mainScreen_width / 5));
+                _totleBtn.frame = CGRectMake(mainScreen_width - 40, 65, 40, 40);
 
 
                 

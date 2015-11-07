@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-u4-kat">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="659"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-u4-kat">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="C08-Zp-Yst"/>
@@ -25,6 +25,12 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="jwZ-u4-kat" secondAttribute="trailing" id="3qf-kz-OpZ"/>
+                <constraint firstItem="jwZ-u4-kat" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5Ny-3x-flv"/>
+                <constraint firstItem="jwZ-u4-kat" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ON5-M3-cNT"/>
+                <constraint firstAttribute="bottom" secondItem="jwZ-u4-kat" secondAttribute="bottom" id="jtr-Uq-mZi"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="354.5" y="394.5"/>
         </view>

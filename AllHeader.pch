@@ -1,0 +1,25 @@
+//
+//  AllHeader.pch
+//  Beautywardrobe
+//
+//  Created by dfxgd on 15/11/6.
+//  Copyright (c) 2015年 zhiyou. All rights reserved.
+//
+
+#ifndef Beautywardrobe_AllHeader_pch
+#define Beautywardrobe_AllHeader_pch
+#import "FirstRequest.h"
+#import "FirstParser.h"
+#import "UIImageView+Addition.h"
+#import "GCollectionViewCell.h"
+#import "GCollectionViewCell0.h"
+
+
+#define CustomColor(R,G,B,A) [UIColor colorWithRed:R/255 green:G/255 blue:B/255 alpha:A]
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define mainScreen_width ([UIScreen mainScreen].bounds.size.width)
+#define mainScreen_height ([UIScreen mainScreen].bounds.size.height)
+#endif

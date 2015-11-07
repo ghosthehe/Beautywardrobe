@@ -10,6 +10,7 @@
 #import "MainCell.h"
 #import "LoginVC.h"
 #import "Setting.h"
+#import "AllHeader.pch"
 @interface MainVC ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     NSMutableArray *_dataArr;
@@ -43,13 +44,13 @@
     NSArray *arr5 = [NSArray arrayWithObjects:@"设置", nil];
     _dataArr = [[NSMutableArray alloc]initWithObjects:arr1,arr2,arr3,arr4,arr5, nil];
     
-    bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 375, 120)];
+    bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, mainScreen_width, 120)];
     bgView.image = [UIImage imageNamed:@"我的bg2.jpg"];
     [self.view addSubview:bgView];
     
-    UIImageView *head = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 375, 120)];
+    UIImageView *head = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, mainScreen_width, 120)];
     loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    loginBtn.frame = CGRectMake(175, 70, 60, 30);
+    loginBtn.frame = CGRectMake(mainScreen_width / 2 - 30, 70, 60, 30);
     [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(loginBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:loginBtn];
@@ -62,12 +63,12 @@
     int a = _myTable.contentOffset.y;
     if (a < 0 || a == 0)
     {
-        bgView.frame = CGRectMake(0, 0, 375, 120 -a);
-        loginBtn.frame = CGRectMake(175, 70 - a, 60, 30);
+        bgView.frame = CGRectMake(0, 0, mainScreen_width, 120 -a);
+        loginBtn.frame = CGRectMake(mainScreen_width / 2 - 30, 70 - a, 60, 30);
     }
     if (a > 0)
     {
-        bgView.frame = CGRectMake(0, - a, 375, 120);
+        bgView.frame = CGRectMake(0, - a, mainScreen_width, 120);
     }
 }
 -(void)loginBtnClick

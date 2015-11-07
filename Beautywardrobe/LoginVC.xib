@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-Bd-wMf">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-Bd-wMf">
                     <rect key="frame" x="54" y="100" width="266" height="37"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgb-cy-EkN">
@@ -32,8 +32,12 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="YhX-Bc-Qj8"/>
+                        <constraint firstAttribute="width" constant="266" id="c6i-tP-LSA"/>
+                    </constraints>
                 </view>
-                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-lT-zUW">
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-lT-zUW">
                     <rect key="frame" x="54" y="171" width="266" height="37"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jz-5J-KfX">
@@ -47,8 +51,12 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRZ-MY-IA1">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRZ-MY-IA1">
                             <rect key="frame" x="192" y="0.0" width="74" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="38" id="L8n-Jm-pZR"/>
+                                <constraint firstAttribute="width" constant="74" id="XyX-8J-pZI"/>
+                            </constraints>
                             <state key="normal" title="忘记密码?">
                                 <color key="titleColor" red="1" green="0.1659487691" blue="0.21789418199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,6 +67,12 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="xRZ-MY-IA1" firstAttribute="top" secondItem="Ga9-lT-zUW" secondAttribute="top" id="ChZ-MC-lTP"/>
+                        <constraint firstAttribute="trailing" secondItem="xRZ-MY-IA1" secondAttribute="trailing" id="bOE-ox-ij1"/>
+                        <constraint firstAttribute="height" constant="37" id="jeC-R8-gjI"/>
+                        <constraint firstAttribute="width" constant="266" id="ppv-5M-HAi"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onD-HB-kio">
                     <rect key="frame" x="108" y="248" width="159" height="30"/>
@@ -80,6 +94,14 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ga9-lT-zUW" firstAttribute="top" secondItem="Pbd-Bd-wMf" secondAttribute="bottom" constant="34" id="95a-3K-fOp"/>
+                <constraint firstItem="Pbd-Bd-wMf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="54" id="E5Z-XN-OEf"/>
+                <constraint firstAttribute="trailing" secondItem="Ga9-lT-zUW" secondAttribute="trailing" constant="55" id="RZ3-Ng-aXD"/>
+                <constraint firstAttribute="trailing" secondItem="Pbd-Bd-wMf" secondAttribute="trailing" constant="55" id="U2q-mE-zSR"/>
+                <constraint firstItem="Ga9-lT-zUW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="54" id="gi9-Ok-N1n"/>
+                <constraint firstItem="Pbd-Bd-wMf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="vNv-zd-eCk"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="337.5" y="350.5"/>
         </view>

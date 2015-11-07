@@ -7,7 +7,7 @@
 //
 
 #import "View1.h"
-
+#import "AllHeader.pch"
 @implementation View1
 
 -(id)initWithFrame:(CGRect)frame
@@ -19,7 +19,7 @@
         for (int i = 0; i < 3; i ++)
         {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.frame = CGRectMake((100 + 38) * i, 0, 100, 60);
+            btn.frame = CGRectMake((100 + (mainScreen_width - 300)/2) * i, 0, 100, 60);
             [btn setTitle:arr[i] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllHeader.pch"
 
 @interface View2 : UIView
-
+{
+    NSMutableArray *_dataArr;
+}
 @end

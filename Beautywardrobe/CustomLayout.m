@@ -7,7 +7,7 @@
 //
 
 #import "CustomLayout.h"
-
+#import "AllHeader.pch"
 @interface CustomLayout (){
 
     float _x;
@@ -26,7 +26,7 @@
 -(void)prepareLayout{
     [super prepareLayout];
     
-    self.itemWidth = 175;
+    self.itemWidth = mainScreen_width / 2 - 10;
     self.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
     self.delegate = (id<WaterFlowLayoutDelegate>)self.collectionView.delegate;
     self.cellCount =[[self collectionView] numberOfItemsInSection:0];

@@ -883,6 +883,8 @@
 		CCAC86701BEAB74B009CAF47 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAC866F1BEAB74B009CAF47 /* libstdc++.dylib */; };
 		CCC774BF1BEB2D4F00EAD79E /* View1.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC774BE1BEB2D4E00EAD79E /* View1.m */; };
 		CCC774C21BEB31E800EAD79E /* View2.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC774C11BEB31E800EAD79E /* View2.m */; };
+		CCED8BE81BEE7FAC00DFB1CB /* SearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCED8BE61BEE7FAC00DFB1CB /* SearchVC.m */; };
+		CCED8BE91BEE7FAC00DFB1CB /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCED8BE71BEE7FAC00DFB1CB /* SearchVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1824,6 +1826,9 @@
 		CCC774BE1BEB2D4E00EAD79E /* View1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View1.m; sourceTree = "<group>"; };
 		CCC774C01BEB31E800EAD79E /* View2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View2.h; sourceTree = "<group>"; };
 		CCC774C11BEB31E800EAD79E /* View2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View2.m; sourceTree = "<group>"; };
+		CCED8BE51BEE7FAC00DFB1CB /* SearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchVC.h; sourceTree = "<group>"; };
+		CCED8BE61BEE7FAC00DFB1CB /* SearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchVC.m; sourceTree = "<group>"; };
+		CCED8BE71BEE7FAC00DFB1CB /* SearchVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3031,6 +3036,7 @@
 		CCC774B91BEAB96500EAD79E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CCED8BDF1BEE7D9100DFB1CB /* 搜索 */,
 				CCAC86741BEAB7FA009CAF47 /* 首页 */,
 				CCAC86731BEAB7E8009CAF47 /* 品牌 */,
 				CCC774B71BEAB90400EAD79E /* 主题 */,
@@ -3067,6 +3073,16 @@
 				CC11560E1BEC17050014E005 /* 推荐 */,
 			);
 			name = "首页";
+			sourceTree = "<group>";
+		};
+		CCED8BDF1BEE7D9100DFB1CB /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				CCED8BE51BEE7FAC00DFB1CB /* SearchVC.h */,
+				CCED8BE61BEE7FAC00DFB1CB /* SearchVC.m */,
+				CCED8BE71BEE7FAC00DFB1CB /* SearchVC.xib */,
+			);
+			name = "搜索";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3851,6 +3867,7 @@
 				CCAC848B1BEAB689009CAF47 /* img_sendment_red.png in Resources */,
 				CCAC85681BEAB689009CAF47 /* yuike_menubar_bg_down_mid.png in Resources */,
 				CCAC83941BEAB689009CAF47 /* alertViewCustom_right.png in Resources */,
+				CCED8BE91BEE7FAC00DFB1CB /* SearchVC.xib in Resources */,
 				CCAC85B81BEAB689009CAF47 /* yuike_waterfallv2_dotempty.png in Resources */,
 				CCAC852C1BEAB689009CAF47 /* yuike_brandbg_subscribe-227.png in Resources */,
 				CCAC83631BEAB689009CAF47 /* 076.png in Resources */,
@@ -4023,6 +4040,7 @@
 				CC7C818E1BED789E0029D3E0 /* FirstParser.m in Sources */,
 				CCAC86571BEAB6CE009CAF47 /* MainVC.m in Sources */,
 				CCAC865D1BEAB6CE009CAF47 /* ShoppingLibrary.m in Sources */,
+				CCED8BE81BEE7FAC00DFB1CB /* SearchVC.m in Sources */,
 				CCAC865B1BEAB6CE009CAF47 /* Setting.m in Sources */,
 				CCC774BF1BEB2D4F00EAD79E /* View1.m in Sources */,
 				CCAC86531BEAB6CE009CAF47 /* MainCell.m in Sources */,
